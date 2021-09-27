@@ -88,7 +88,7 @@ order by 1,2
 --looking at total Population vs Vaccinations
 Select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations,
 SUM(CONVERT(int, vac.new_vaccinations)) OVER (Partition by dea.location order by dea.location, dea.date) as PeopleVaccinated-- we use partition by the location to break off the query, when 
--- a new location, the aggregate function doesnt run all the time
+-- a new location, so the aggregate function doesnt run all the time in a loop
 from PortfolioProject..CovidDeath dea
 Join PortfolioProject..CovidVaccination vac
 	On dea.location = vac.location

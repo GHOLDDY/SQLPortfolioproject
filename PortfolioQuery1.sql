@@ -18,14 +18,14 @@ from PortfolioProject..CovidDeath
 where location = 'Nigeria'
 order by 1, 2
 
-shows the  percentage of population got Covid
+--shows the  percentage of population got Covid
 Select location, date, total_cases, Population,  total_deaths, (Total_cases/population)*100 as DeathPercentage
 from PortfolioProject..CovidDeath
 --where location = 'United States'
 order by 1, 2
 
 
-look at countries with the highest infection rate compared to population
+--look at countries with the highest infection rate compared to population
 
 Select location, Population,  MAX(total_cases) as HighestInfectionCount, MAX((Total_cases/population))*100 as PercentPopulationInfected
 from PortfolioProject..CovidDeath
